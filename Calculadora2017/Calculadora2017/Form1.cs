@@ -24,6 +24,7 @@ namespace Calculadora
         {
 
         }
+        #region Botões
 
         private void btn1_Click(object sender, EventArgs e)
         {
@@ -73,7 +74,8 @@ namespace Calculadora
         private void btn0_Click(object sender, EventArgs e)
         {
             txtDisplay.Text += "0";
-        }
+        } 
+        #endregion
 
         private void btnmultiplica_Click(object sender, EventArgs e)
         {
@@ -81,39 +83,41 @@ namespace Calculadora
             operador = "*";
             txtDisplay.Text = "";
         }
+        #region Operadores
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            if(operador == "*")
+            if (operador == "*")
             {
                 resultado *= Convert.ToDouble(txtDisplay.Text);
                 txtDisplay.Text = resultado.ToString();
             }
-            else if(operador == "/")
+            else if (operador == "/")
             {
                 resultado /= Convert.ToDouble(txtDisplay.Text);
                 txtDisplay.Text = resultado.ToString();
             }
-            else if(operador == "+")
+            else if (operador == "+")
             {
                 resultado += Convert.ToDouble(txtDisplay.Text);
                 txtDisplay.Text = resultado.ToString();
             }
-            else if(operador == "-")
+            else if (operador == "-")
             {
                 resultado -= Convert.ToDouble(txtDisplay.Text);
-                txtDisplay.Text = resultado.ToString();      
-            }  
-            else if(operador == "a")
+                txtDisplay.Text = resultado.ToString();
+            }
+            else if (operador == "a")
             {
 
                 double pot;
-               
-                pot = Math.Pow(resultado, Convert.ToDouble(txtDisplay.Text));
-                txtDisplay.Text = pot.ToString(); 
+                double res = Convert.ToDouble(txtDisplay.Text);
+                pot = Math.Pow(resultado, res);
+                txtDisplay.Text = pot.ToString();
             }
 
-        }
+        } 
+        #endregion
 
         private void btnLimpa_Click(object sender, EventArgs e)
         {
@@ -160,11 +164,12 @@ namespace Calculadora
 
         private void btnRaiz_Click(object sender, EventArgs e)
         {
-            double percent;
+            double rest;
             resultado = Convert.ToDouble(txtDisplay.Text);
 
-            percent = resultado / 100 * resultado;
-            txtDisplay.Text = percent.ToString();
+            rest = Math.Sqrt(resultado);
+         
+            txtDisplay.Text = rest.ToString();
                          
             
             
